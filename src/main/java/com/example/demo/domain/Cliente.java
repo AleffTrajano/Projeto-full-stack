@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -15,8 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.example.demo.domain.enums.TipoCliente;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Cliente implements Serializable {
 
@@ -30,8 +30,8 @@ public class Cliente implements Serializable {
 	private String cpfouCnpj;
 	private Integer tipo;
 
-	@JsonManagedReference
-	@OneToMany(mappedBy="cliente")
+	
+	@OneToMany(mappedBy="cliente",cascade=CascadeType.ALL)
 	private List<Endereco> enderecos = new ArrayList<>();
 
 	/*
@@ -40,10 +40,10 @@ public class Cliente implements Serializable {
 	 */
 
 	@ElementCollection
-	@CollectionTable()
+	@CollectionTable(name="TELEFONE")
 	private Set<String> telefones = new HashSet<>();
 
-	@JsonBackReference
+	@JsonIgnore
 	@OneToMany(mappedBy="cliente")
 	private List<Pedido> pedidos = new ArrayList<>();
 	

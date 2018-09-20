@@ -11,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 //jpa faz o mapeamento  objeto relacional criando as tabelas no banco usa a anotação entity
 @Entity
@@ -32,7 +31,7 @@ public class Categoria implements Serializable {
 	// inicia as coleções.
 
 	
-	@JsonManagedReference//coloca essa anotação para vim os obj associados.
+	
 	//fechando o mapeamento muitos para muitos dos dois lados. produto e categoria.
 	@ManyToMany(mappedBy="categorias")
 	private List<Produto> produtos = new ArrayList<>();
@@ -45,14 +44,6 @@ public class Categoria implements Serializable {
 		super();
 		this.id = id;
 		this.nome = nome;
-	}
-
-	public List<Produto> getProdutos() {
-		return produtos;
-	}
-
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
 	}
 
 	public Integer getId() {
@@ -71,6 +62,14 @@ public class Categoria implements Serializable {
 		this.nome = nome;
 	}
 
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -79,8 +78,6 @@ public class Categoria implements Serializable {
 		return result;
 	}
 
-	// hashCode and equals faz a comparação dos objetos com o valor nesse caso
-	// usando o id para comparação.
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -99,3 +96,4 @@ public class Categoria implements Serializable {
 	}
 
 }
+

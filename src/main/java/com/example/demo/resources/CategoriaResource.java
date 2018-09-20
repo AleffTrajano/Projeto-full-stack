@@ -15,7 +15,7 @@ import com.example.demo.services.CategoriaService;
 * que vai responde ao endpoint categorias.
 */
 @RestController
-@RequestMapping(value = "/categorias")
+@RequestMapping(value ="/categorias")
 public class CategoriaResource {
 	/*
 	 * requestmapping verbo http para uma requisição basica get. agora o metodo
@@ -28,7 +28,7 @@ public class CategoriaResource {
 	private CategoriaService service;
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable Integer id) {
+	public ResponseEntity<Categoria> find(@PathVariable Integer id) {
 
 		Categoria obj = service.busca(id);
 		
@@ -36,4 +36,6 @@ public class CategoriaResource {
 
 	
 	}
+	
+	
 }

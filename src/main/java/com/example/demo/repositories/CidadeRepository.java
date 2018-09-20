@@ -9,4 +9,6 @@ ao objeto cidade que esta mapeado com a tabela cidade no banco */
 @Repository
 public interface CidadeRepository extends JpaRepository<Cidade,Integer> {
 
+	
+	
 }

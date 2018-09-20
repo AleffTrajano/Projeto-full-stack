@@ -15,7 +15,7 @@ import com.example.demo.services.ClienteService;
 * que vai responde ao endpoint categorias.
 */
 @RestController
-@RequestMapping(value = "/clientes")
+@RequestMapping(value ="/clientes")
 public class ClienteResource {
 	/*
 	 * requestmapping verbo http para uma requisição basica get. agora o metodo
@@ -27,7 +27,7 @@ public class ClienteResource {
 	@Autowired
 	private ClienteService service;
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value ="/{id}", method =RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
 
 		Cliente obj = service.busca(id);

@@ -9,4 +9,5 @@ ao objeto categoria que esta mapeado com a tabela categoria no banco */
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente,Integer> {
 
+	
 }

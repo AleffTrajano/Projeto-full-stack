@@ -9,9 +9,6 @@ import javax.persistence.ManyToOne;
 
 @Embeddable// diz que a classe é um subtipo
 public class ItemPedidoPK implements Serializable{
-	
-	
-	 
 	private static final long serialVersionUID = 1L;
 	//criando a intedificação do item pedido ja que ela nao tem chave
 	//primaria por ser uma classe de associação
@@ -22,6 +19,7 @@ public class ItemPedidoPK implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="produto_id")
 	private Produto produto;
+	
 	public Pedido getPedido() {
 		return pedido;
 	}
